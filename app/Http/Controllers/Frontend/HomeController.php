@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Http\Controllers\Frontend;
+
+use App\Http\Controllers\Controller;
+use App\Models\Company;
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function index(){
+    
+    return response()->json(Company::whereStatus(true)->get(),200);
+    }
+}
