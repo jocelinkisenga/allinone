@@ -15,7 +15,7 @@ public function __construct()
 }
 
 public function index(){
-
+    return view('Manager.pages.categories.categories');
 }
 
 public function create(){

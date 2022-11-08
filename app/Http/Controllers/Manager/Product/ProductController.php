@@ -14,7 +14,7 @@ class ProductController extends Controller
 }
 
 public function index(){
-
+    return view('Manager.pages.Produits.products');
 }
 
 public function create(){

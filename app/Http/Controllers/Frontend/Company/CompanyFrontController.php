@@ -15,7 +15,7 @@ class CompanyFrontController extends Controller
         
     }
 
-    public function index(string $slug, int $id){
-        return response()->json($this->repositorie->getContents($id));
-    }
+    // public function index(string $slug, int $id){
+    //     return response()->json($this->repositorie->getContents($id));
+    // }
 }

@@ -13,17 +13,22 @@
   <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+  <style>
+    .bb {
+      margin-top: 10%;
+    }
+  </style>
 </head>
 <body class="hold-transition  sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
-    @include("Admin.components.navbar")
-    @include("Admin.components.aside")
+    @include("Manager.components.navbar")
+    @include("Manager.components.aside")
 
     @yield("content")
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
   </aside>
-    @include("Admin.components.footer")
+    @include("Manager.components.footer")
 </div>
 <!-- ./wrapper -->
 

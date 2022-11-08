@@ -45,15 +45,21 @@
             <ul class="nav nav-treeview">
  
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link ">
+                <a href="{{route('manager.categories')}}" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Managers</p>
+                  <p>Catégorie</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{route('manager.products')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Societés</p>
+                  <p>Produits</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('manager.commandes')}}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>commandes</p>
                 </a>
               </li>
             </ul>

@@ -21,6 +21,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[HomeController::class,'index'])->name('home');
-Route::get('/{slug}/{id}',[CompanyFrontController::class,'index'])->name('company');
+//Route::get('/{slug}/{id}',[CompanyFrontController::class,'index'])->name('company');
 
 require __DIR__.'/admin.php';
+require __DIR__.'/manager.php';

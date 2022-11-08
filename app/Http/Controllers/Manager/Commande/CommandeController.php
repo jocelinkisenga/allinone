@@ -13,7 +13,7 @@ class CommandeController extends Controller
 }
 
 public function index(){
-
+    return view('Manager.pages.commandes.commandes');
 }
 
 
