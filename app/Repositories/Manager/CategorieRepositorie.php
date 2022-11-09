@@ -2,17 +2,29 @@
 namespace App\Repositories\Manager;
 
 use App\Contracts\Manager\CategorieRepositoryInterface;
+use App\Contracts\Manager\CompanyRepositoryInterface;
 use App\Models\Category;
 use App\Models\Product;
 
 class CategorieRepositorie implements CategorieRepositoryInterface {
 
+    public function __construct(
+        public CompanyRepositoryInterface $company,
+        
+    )
+    {
+        
+    }
+
     public function getContents(){
-        return Category::all();
+        return Category::whereCompany_id($this->company->getContents()->id)->get();
     }
 
     public function createData($attributes){
-        Category::create($attributes);
+        Category::create([
+            'company_id'=>$this->company->getContents()->id,
+            'name'=>$attributes->name
+        ]);
     }
 
     public function getContentById(int $id){

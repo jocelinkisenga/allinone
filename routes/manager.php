@@ -7,7 +7,7 @@ use App\Http\Controllers\Manager\HomeController;
 use App\Http\Controllers\Manager\Product\ProductController;
 use Illuminate\Support\Facades\Route;
 
- Route::prefix('manager')->group(function(){
+ Route::middleware('auth')->prefix('manager')->group(function(){
     Route::get('/',[HomeController::class,'index'])->name('manager.dashboard');
     Route::get('/compagnies',[CompanyController::class,'index'])->name('manager.compagnies');
     Route::get('/categories',[CategoryController::class,'index'])->name('manager.categories');

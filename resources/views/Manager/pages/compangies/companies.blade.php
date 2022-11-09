@@ -13,14 +13,14 @@
                             </div>
                             <div class="card-body">
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
-                                    Ajouter une catégorie
+                                    Ajouter une entreprise
                                 </button>
 
                                 <div class="modal fade" id="modal-lg">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h4 class="modal-title">Ajouter une catégorie</h4>
+                                                <h4 class="modal-title">créer une entreprise</h4>
                                                 <button type="button" class="close" data-dismiss="modal"
                                                     aria-label="Close">
                                                     <span aria-hidden="true">&times;</span>
@@ -33,31 +33,62 @@
 
                                                         <!-- /.card-header -->
                                                         <!-- form start -->
-                                                        <form action="{{route('manager.categorie.store')}}" method="POST">
-                                                            @csrf
-
+                                                     
                                                             <div class="card-body">
+                                                              <form action="{{route('manager.company.store')}}" method="POST" enctype="multipart/form-data">
+                                                             @csrf
                                                                 <div class="form-group">
-                                                                    <label for="exampleInputEmail1">nom de la catégorie</label>
+                                                                    <label for="exampleInputEmail1">Nom de l'entreprise</label>
                                                                     <input type="text" name="name" class="form-control"
                                                                         id="exampleInputEmail1" placeholder="">
                                                                 </div>
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputFile">Image</label>
+                                                                    <div class="input-group">
+                                                                        <div class="custom-file">
+                                                                            <input type="file" name="image" class="custom-file-input"
+                                                                                id="exampleInputFile">
+                                                                            <label class="custom-file-label"
+                                                                                for="exampleInputFile">choisissez une image</label>
+                                                                        </div>
+                                                                        <div class="input-group-append">
+                                                                            <span class="input-group-text">image</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                  <label for="exampleInputFile">petite présentation</label>
+                                                                    <textarea name="description" id="" class="form-control"></textarea>
+                                                                  
+                                                              </div>
+                                                              
+                                                              <div class="form-group">
+                                                                <label for="exampleInputPassword1">adresse</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="exampleInputPassword1" placeholder="" name="adress">
+                                                            </div>
+                                                            
+                                                            <div class="form-group">
+                                                                <label for="exampleInputPassword1">contact</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="exampleInputPassword1" placeholder="" name="contact">
+                                                            </div>
                                                             </div>
                                                             <!-- /.card-body -->
 
 
-                                           
+                                                      
                                                     </div>
                                                     <!-- /.card -->
 
                                                 </div>
                                             </div>
                                             <div class="modal-footer justify-content-between">
-                                                <button type="button" class="btn btn-default"
+                                                <button type="button" class="btn btn-danger"
                                                     data-dismiss="modal">fermer</button>
-                                                <button type="submit" class="btn btn-primary">Enregistrer</button>
+                                                <button type="submit" class="btn btn-primary">enregistrer</button>
                                             </div>
-                                        </form>
+                                          </form>
                                         </div>
                                         <!-- /.modal-content -->
                                     </div>
@@ -101,18 +132,19 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>nom</th>
+                                            <th>contact</th>
+                                            <th>adresse</th>
                                             <th>Détail</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($data as $key =>$categorie )
                                         <tr>
-                                            <td>{{$key+1}}</td>
-                                            <td>{{$categorie->name}}</td>
+                                            <td>183</td>
+                                            <td>{{$data->name}}</td>
+                                            <td>{{$data->contact}}</td>
+                                            <td><span class="tag tag-success">{{$data->adress}}</span></td>
                                             <td>detail</td>
                                         </tr>
-                                        @endforeach
-
                                     </tbody>
                                 </table>
                             </div>

@@ -33,24 +33,25 @@
 
                                                         <!-- /.card-header -->
                                                         <!-- form start -->
-                                                        <form>
+                                                      
                                                             <div class="card-body">
-                                                              <form action="">
+                                                              <form action="{{route('manager.product.store')}}" method="POST" enctype="multipart/form-data">
+                                                                @csrf
                                                                 <div class="form-group">
                                                                     <label for="exampleInputEmail1">Nom du produit</label>
-                                                                    <input type="text" class="form-control"
+                                                                    <input type="text" name="name" class="form-control"
                                                                         id="exampleInputEmail1" placeholder="">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputPassword1">prix</label>
-                                                                    <input type="text" class="form-control"
+                                                                    <input type="text" name="price" class="form-control"
                                                                         id="exampleInputPassword1" placeholder="">
                                                                 </div>
                                                                 <div class="form-group">
                                                                     <label for="exampleInputFile">File input</label>
                                                                     <div class="input-group">
                                                                         <div class="custom-file">
-                                                                            <input type="file" class="custom-file-input"
+                                                                            <input type="file" name="image" class="custom-file-input"
                                                                                 id="exampleInputFile">
                                                                             <label class="custom-file-label"
                                                                                 for="exampleInputFile">Choose file</label>
@@ -63,9 +64,12 @@
                                                                 <div class="form-group">
                                                                   <label for="exampleInputFile">selectionner une catégorie</label>
                                                                
-                                                                    <select class="custom-select" name="" id="">
+                                                                    <select class="custom-select" name="categorie_id" id="">
                                                                       <option selected>Selectionner une cat...</option>
-                                                                      <option value=""></option>
+                                                                      @foreach ($categories as $item )
+                                                                      <option value="{{$item->id}}">{{$item->name}}</option> 
+                                                                      @endforeach
+                                                                      
                                                                     </select>
                                                                   
                                                               </div>
@@ -73,7 +77,7 @@
                                                             <!-- /.card-body -->
 
 
-                                                        </form>
+                                                      
                                                     </div>
                                                     <!-- /.card -->
 
@@ -82,7 +86,7 @@
                                             <div class="modal-footer justify-content-between">
                                                 <button type="button" class="btn btn-danger"
                                                     data-dismiss="modal">fermer</button>
-                                                <button type="button" class="btn btn-primary">enregistrer</button>
+                                                <button type="submit" class="btn btn-primary">enregistrer</button>
                                             </div>
                                           </form>
                                         </div>
@@ -134,13 +138,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach ($products as $key => $item )
                                         <tr>
-                                            <td>183</td>
-                                            <td>John Doe</td>
-                                            <td>11-7-2014</td>
-                                            <td><span class="tag tag-success">Approved</span></td>
+                                            <td>{{$key+1}}</td>
+                                            <td>{{$item->name}}</td>
+                                            <td>{{$item->price}}</td>
+                                            <td>{{$item->categorie->name}}</td>
                                             <td>detail</td>
-                                        </tr>
+                                        </tr> 
+                                        @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

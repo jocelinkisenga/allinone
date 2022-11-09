@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('commandes', function (Blueprint $table) {
             $table->id();
             $table->foreignId('product_id');
+            $table->foreignId('company_id')->nullable();
             $table->foreignId('user_id')->nullable();
             $table->string('etiquette')->nullable();
             $table->bigInteger('quantity');
