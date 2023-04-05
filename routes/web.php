@@ -4,7 +4,7 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Frontend\Category\CategoryFrontController;
 use App\Http\Controllers\Frontend\Company\CompanyFrontController;
-use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*

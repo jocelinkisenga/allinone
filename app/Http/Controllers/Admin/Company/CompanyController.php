@@ -9,7 +9,8 @@ use Illuminate\Http\Request;
 class CompanyController extends Controller
 {
     public function index(){
-       dd(Company::all());
+       $companies = Company::all();
+       return view('Admin.pages.Company.companies',compact('companies'));
     }
 
     public function show(int $id){

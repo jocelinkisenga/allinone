@@ -138,6 +138,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @if (!empty($data))
                                         <tr>
                                             <td>183</td>
                                             <td>{{$data->name}}</td>
@@ -145,6 +146,8 @@
                                             <td><span class="tag tag-success">{{$data->adress}}</span></td>
                                             <td>detail</td>
                                         </tr>
+                                        @endif
+
                                     </tbody>
                                 </table>
                             </div>

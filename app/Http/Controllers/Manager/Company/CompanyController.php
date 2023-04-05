@@ -23,6 +23,7 @@ public function index(){
 
 public function store(Request $request){
     $this->repo->createData($request);
+    return redirect()->back();
 }
 
 public function show(int $id){

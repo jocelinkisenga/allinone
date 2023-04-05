@@ -9,6 +9,8 @@ use Illuminate\Http\Request;
 class ManagerController extends Controller
 {
     public function index(){
-        dd(User::where('role_id',\App\Enums\RoleEnum::MANAGER));
+        $managers = User::latest()->where('role_id',\App\Enums\RoleEnum::MANAGER)->get();
+
+        return view('Admin.pages.Manager.managers',compact('managers'));
     }
 }

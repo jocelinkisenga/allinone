@@ -45,13 +45,13 @@
             <ul class="nav nav-treeview">
  
               <li class="nav-item">
-                <a href="./index2.html" class="nav-link ">
+                <a href="{{route('admin.manager')}}" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Managers</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="./index3.html" class="nav-link">
+                <a href="{{route('admin.compagnies')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Societés</p>
                 </a>
