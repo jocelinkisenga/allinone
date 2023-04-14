@@ -67,6 +67,6 @@ if($request->role_name === "M"){
 
         Auth::login($user);
 
-        return redirect()->route('home');
+        return redirect()->route('login');
     }
 }

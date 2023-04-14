@@ -27,6 +27,14 @@
               </div>
             </div>
           </div>
+        <div>
+          @error('email')
+         <span class="text-danger"> {{$message}}</span>
+          @enderror
+          @error('password')
+         <span class="text-danger"> {{$message}}</span>
+          @enderror
+        </div>
           <div class="row">
             <div class="col-8">
               <div class="icheck-primary">

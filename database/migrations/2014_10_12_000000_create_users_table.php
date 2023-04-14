@@ -1,7 +1,10 @@
 <?php
 
+use App\Enums\RoleEnum;
+use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -24,6 +27,14 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        User::create([
+            'name'=>'admin',
+            'email' => 'admin@gmail.com',
+            'password'=> Hash::make('je suis admin'),
+            'role' => RoleEnum::ADMIN,
+            'status' => true,
+        ]);
     }
 
     /**

@@ -48,6 +48,7 @@
                                             <th>ID</th>
                                             <th>nom</th>
                                             <th>Détail</th>
+                                            <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -55,7 +56,16 @@
                                         <tr>
                                             <td>{{$key+1}}</td>
                                             <td>{{$company->name}}</td>
-                                            <td>detail</td>
+                                            @if ($company->status == false)
+                                            <td>non activé</td>
+                                            @else
+                                            <td> activé</td>
+                                            @endif
+                                             <td>
+                                                 <a href="http://" title="voir plus"><i class="fas fa-eye text-primary ml-1"></i> </a>
+                                                 <a href="{{route('company.activer',['id'=>$company->id])}}" title="activer"> <i class="fas fa-mars-stroke-v text-success ml-1"></i></a>
+                                                <a href="{{route('company.desactiver',['id'=>$company->id])}}" title="désactiver"> <i class="fas fa-window-close text-danger mr-1"></i></a>
+                                                </td>
                                         </tr>
                                         @endforeach
 

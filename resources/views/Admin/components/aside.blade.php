@@ -57,6 +57,12 @@
                 </a>
               </li>
             </ul>
+            <li>
+              <form action="{{route('logout')}}" method="post">
+              @csrf
+                <button type="submit" class="bg-danger text-white border-radius-3">se deconnecter</button>
+            </form>
+            </li>
           </li>
         </ul>
       </nav>
