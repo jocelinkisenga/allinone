@@ -12,10 +12,13 @@
 
                             </div>
                             <div class="card-body">
+                                @if (Auth::user()->status == 0)
+                                    <h2>Votre compte n'est pas encore activé</h2>
+                               @else
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
                                     Ajouter une entreprise
                                 </button>
-
+                                @endif
                                 <div class="modal fade" id="modal-lg">
                                     <div class="modal-dialog modal-lg">
                                         <div class="modal-content">

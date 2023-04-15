@@ -12,9 +12,14 @@
 
                             </div>
                             <div class="card-body">
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
-                                    Ajouter un produit
-                                </button>
+                                @if (Auth::user()->status == false)
+                                    <h2>Vous n'êtes pas activé</h2>
+                                    @else
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
+                                        Ajouter un produit
+                                    </button>
+                                @endif
+
 
                                 <div class="modal fade" id="modal-lg">
                                     <div class="modal-dialog modal-lg">
@@ -66,9 +71,12 @@
                                                                
                                                                     <select class="custom-select" name="categorie_id" id="">
                                                                       <option selected>Selectionner une cat...</option>
+                                                                      @if (!empty($categories))
                                                                       @foreach ($categories as $item )
                                                                       <option value="{{$item->id}}">{{$item->name}}</option> 
-                                                                      @endforeach
+                                                                      @endforeach 
+                                                                      @endif
+
                                                                       
                                                                     </select>
                                                                   
@@ -137,18 +145,21 @@
                                             <th>Détail</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        @foreach ($products as $key => $item )
-                                        <tr>
-                                            <td>{{$key+1}}</td>
-                                            <td>{{$item->name}}</td>
-                                            <td>{{$item->price}}</td>
-                                            <td>{{$item->categorie->name}}</td>
-                                            <td>detail</td>
-                                        </tr> 
-                                        @endforeach
-
-                                    </tbody>
+                                    @empty($products)
+                                        @else
+                                        <tbody>
+                                            @foreach ($products as $key => $item )
+                                            <tr>
+                                                <td>{{$key+1}}</td>
+                                                <td>{{$item->name}}</td>
+                                                <td>{{$item->price}}</td>
+                                                <td>{{$item->categorie->name}}</td>
+                                                <td>detail</td>
+                                            </tr> 
+                                            @endforeach
+    
+                                        </tbody>
+                                    @endempty
                                 </table>
                             </div>
                             <!-- /.card-body -->

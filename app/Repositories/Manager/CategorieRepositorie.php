@@ -17,7 +17,10 @@ class CategorieRepositorie implements CategorieRepositoryInterface {
     }
 
     public function getContents(){
-        return Category::whereCompany_id($this->company->getContents()->id)->get();
+        if($this->company->getContents() != null){
+            return Category::whereCompany_id($this->company->getContents()->id)->get();
+        }
+
     }
 
     public function createData($attributes){

@@ -2,8 +2,10 @@
 
 namespace App\Http\Middleware;
 
+use App\Enums\RoleEnum;
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ManagerMiddleware
 {
@@ -16,6 +18,9 @@ class ManagerMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        if(Auth::user()->role_id !==  RoleEnum::MANAGER){
+            return redirect()->back();
+        }
         return $next($request);
     }
 }

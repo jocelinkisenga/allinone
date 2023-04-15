@@ -16,7 +16,10 @@ class ProductRepositorie implements ProductRepositorieInterface {
     }
 
     public function getContents(){
-        return Product::whereCompany_id($this->company->getContents()->id)->get();
+        if($this->company->getContents() != null){
+            return Product::whereCompany_id($this->company->getContents()->id)->get();
+        }
+       
     }
 
     public function createData($attributes){
