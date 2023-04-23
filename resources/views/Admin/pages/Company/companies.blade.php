@@ -11,7 +11,113 @@
                             <div class="card-header">
 
                             </div>
+                            <div class="card-body">
+                                @if (Auth::user()->status == 0)
+                                    <h2>Votre compte n'est pas encore activé</h2>
+                               @else
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-lg">
+                                    Ajouter une entreprise
+                                </button>
+                                @endif
+                                <div class="modal fade" id="modal-lg">
+                                    <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">créer une entreprise</h4>
+                                                <button type="button" class="close" data-dismiss="modal"
+                                                    aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="col-md-12">
+                                                    <!-- general form elements -->
+                                                    <div class="card card-primary">
 
+                                                        <!-- /.card-header -->
+                                                        <!-- form start -->
+                                                     
+                                                            <div class="card-body">
+                                                              <form action="{{route('manager.company.store')}}" method="POST" enctype="multipart/form-data">
+                                                             @csrf
+                                                             <div class="row">
+                                                                <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputEmail1">Nom de l'entreprise</label>
+                                                                    <input type="text" name="name" class="form-control"
+                                                                        id="exampleInputEmail1" placeholder="">
+                                                                </div>
+                                                                </div>
+                                                                <div class="col-6">
+                                                                <div class="form-group">
+                                                                    <label for="exampleInputFile">Image</label>
+                                                                    <div class="input-group">
+                                                                        <div class="custom-file">
+                                                                            <input type="file" name="image" class="custom-file-input"
+                                                                                id="exampleInputFile">
+                                                                            <label class="custom-file-label"
+                                                                                for="exampleInputFile">choisissez une image</label>
+                                                                        </div>
+                                                                        <div class="input-group-append">
+                                                                            <span class="input-group-text">image</span>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                </div>
+                                                             </div>
+                                                                <div class="form-group">
+                                                                  <label for="exampleInputFile">petite présentation</label>
+                                                                    <textarea name="description" id="" class="form-control"></textarea>
+                                                                  
+                                                              </div>
+                                                              
+                                                              <div class="form-group">
+                                                                <label for="exampleInputPassword1">adresse</label>
+                                                                <input type="text" class="form-control"
+                                                                    id="exampleInputPassword1" placeholder="" name="adress">
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-6">
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputPassword1">email</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="exampleInputPassword1" placeholder="" name="email">
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="col-6">
+                                                                                                                                        
+                                                                    <div class="form-group">
+                                                                        <label for="exampleInputPassword1">contact</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="exampleInputPassword1" placeholder="" name="contact">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            <!-- /.card-body -->
+
+
+                                                      
+                                                    </div>
+                                                    <!-- /.card -->
+
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer justify-content-between">
+                                                <button type="button" class="btn btn-danger"
+                                                    data-dismiss="modal">fermer</button>
+                                                <button type="submit" class="btn btn-primary">enregistrer</button>
+                                            </div>
+                                          </form>
+                                        </div>
+                                        <!-- /.modal-content -->
+                                    </div>
+                                    <!-- /.modal-dialog -->
+                                </div>
+                                <br />
+                                <br />
+                            </div>
                             <!-- /.card -->
                         </div>
                     </div>
@@ -25,7 +131,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Listes des sociétés</h3>
+                                <h3 class="card-title">Listes des entreprises</h3>
 
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -47,27 +153,21 @@
                                         <tr>
                                             <th>ID</th>
                                             <th>nom</th>
+                                            <th>contact</th>
+                                            <th>adresse</th>
                                             <th>Détail</th>
-                                            <th>action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($companies as $key =>$company )
+                                        @if (!empty($data))
                                         <tr>
-                                            <td>{{$key+1}}</td>
-                                            <td>{{$company->name}}</td>
-                                            @if ($company->status == false)
-                                            <td>non activé</td>
-                                            @else
-                                            <td> activé</td>
-                                            @endif
-                                             <td>
-                                                 <a href="http://" title="voir plus"><i class="fas fa-eye text-primary ml-1"></i> </a>
-                                                 <a href="{{route('company.activer',['id'=>$company->id])}}" title="activer"> <i class="fas fa-mars-stroke-v text-success ml-1"></i></a>
-                                                <a href="{{route('company.desactiver',['id'=>$company->id])}}" title="désactiver"> <i class="fas fa-window-close text-danger mr-1"></i></a>
-                                                </td>
+                                            <td>183</td>
+                                            <td>{{$data->name}}</td>
+                                            <td>{{$data->contact}}</td>
+                                            <td><span class="tag tag-success">{{$data->adress}}</span></td>
+                                            <td>detail</td>
                                         </tr>
-                                        @endforeach
+                                        @endif
 
                                     </tbody>
                                 </table>

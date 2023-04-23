@@ -23,6 +23,13 @@ class CompanyRepositorie implements CompanyRepositoryInterface {
         $fileName= time().'.'.$attributes->file('image')->getClientOriginalName();
         $path=$attributes->file('image')->storeAs('uploads', $fileName, 'public');
 
+        User::create([
+            'name' => $attributes->name,
+            'email' => $attributes->email,
+            'password'=> Hash::make($attributes->contact),
+            'role_id'=> RoleEnum::MANAGER
+        ]);
+
         Company::create([
             'user_id'=>Auth::user()->id,
             'name'=>$attributes->name,

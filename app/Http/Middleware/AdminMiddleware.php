@@ -20,8 +20,10 @@ class AdminMiddleware
     {
         if(Auth::user()->role_id !==  RoleEnum::ADMIN){
             return redirect()->back();
+        }else{
+            return $next($request);
         }
-        return $next($request);
+        
     }
 
       
