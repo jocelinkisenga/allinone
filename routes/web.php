@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/',[HomeController::class,'index'])->name('home');
-
+Route::get('/fournisseurs',[CompanyFrontController::class,'index'])->name('fournisseurs');
 //Route::get('/{slug}/{id}',[CompanyFrontController::class,'index'])->name('company');
 
 require __DIR__.'/admin.php';

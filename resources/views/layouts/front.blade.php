@@ -13,9 +13,9 @@
 	<link rel="icon" type="image/png" href="images/logo.png">
 	<!-- Web Font -->
 	<link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
-	
+
 	<!-- StyleSheet -->
-	
+
 	<!-- Bootstrap -->
 	<link rel="stylesheet" href="{{asset('front/css/bootstrap.css')}}">
 	<!-- Magnific Popup -->
@@ -36,17 +36,17 @@
     <link rel="stylesheet" href="{{asset('front/css/owl-carousel.css')}}">
 	<!-- Slicknav -->
     <link rel="stylesheet" href="{{asset('front/css/slicknav.min.css')}}">
-	
+
 	<!-- Eshop StyleSheet -->
 	<link rel="stylesheet" href="{{asset('front/css/reset.css')}}">
 	<link rel="stylesheet" href="{{asset('front/style.css')}}">
     <link rel="stylesheet" href="{{asset('front/css/responsive.css')}}">
 
-	
-	
+	@livewireStyles
+
 </head>
 <body class="js">
-	
+
 	<!-- Preloader -->
 	<div class="preloader">
 		<div class="preloader-inner">
@@ -57,11 +57,11 @@
 		</div>
 	</div>
 	<!-- End Preloader -->
-	
-	
+
+
 	<!-- Header -->
 	<header class="header shop">
-		
+
 		<div class="middle-inner">
 			<div class="container">
 				<div class="row">
@@ -154,33 +154,33 @@
 				<div class="cat-nav-head">
 					<div class="row">
 						<div class="col-lg-3">
-							
+
 						</div>
-						
+
 						<div class="col-lg-9 col-12">
 							<div class="menu-area">
 								<!-- Main Menu -->
 								<nav class="navbar navbar-expand-lg">
-									<div class="navbar-collapse">	
-										<div class="nav-inner">	
+									<div class="navbar-collapse">
+										<div class="nav-inner">
 											<ul class="nav main-menu menu navbar-nav align-items-center">
 													<li class="active"><a href="#">Home</a></li>
-													<li><a href="ListeFournisseur.html">Liste de Fournisseur</a></li>												
-													
+													<li><a href="ListeFournisseur.html">Liste de Fournisseur</a></li>
+
 													<li><a href="#">Boutique<i class="ti-angle-down"></i><span class="new">New</span></a>
 														<ul class="dropdown">
 															<li><a href="cart.html">Chariot</a></li>
 															<li><a href="checkout.html">Paiement</a></li>
 														</ul>
 													</li>
-																					
-													
-													
+
+
+
 												</ul>
 										</div>
 									</div>
 								</nav>
-								<!--/ End Main Menu -->	
+								<!--/ End Main Menu -->
 							</div>
 						</div>
 					</div>
@@ -190,7 +190,7 @@
 		<!--/ End Header Inner -->
 	</header>
 	<!--/ End Header -->
-	
+
 
 
 
@@ -202,7 +202,7 @@
 
 
 
-    
+
 	<!-- Start Footer Area -->
 	<footer class="footer">
 		<!-- Footer Top -->
@@ -215,14 +215,14 @@
 							<div class="logo">
 								<a href="index.html"><h5>Presentation Entreprise</h5></a>
 							</div>
-							
+
 							<p class="text">Habari Zetu Services est une entreprise lancée en Décembre 2018 au registre de commerce CD/LSH/RCCM/18-A-00748 et elle est basée à Lubumbashi en République Démocratique du Congo.</p>
 							<p class="call">Question? Appellez nous 24/7<span><a href="tel:+243975501066">+243 97 55 010 66</a></span></p>
 						</div>
 						<!-- End Single Widget -->
 					</div>
-					
-					
+
+
 					<div class="col-lg-6 col-md-8 col-12">
 						<!-- Single Widget -->
 						<div class="single-footer social">
@@ -261,14 +261,14 @@
 								<p>Copyright © 2023   -  All Rights Reserved.</p>
 							</div>
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
 	<!-- /End Footer Area -->
- 
+@livewireScripts
 	<!-- Jquery -->
     <script src="{{asset('front/js/jquery.min.js')}}"></script>
     <script src="{{asset('front/js/jquery-migrate-3.0.0.js')}}"></script>

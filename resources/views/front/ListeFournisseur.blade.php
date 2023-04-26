@@ -1,59 +1,6 @@
 @extends('layouts.front')
-@section('title','Acceuil')
+@section('title','liste des fournisseurs')
 @section('content')
-
-	<!-- Slider Area -->
-	<section class="hero-slider">
-		<!-- Single Slider -->
-		<div class="single-slider">
-			<div class="container">
-
-				<div class="row no-gutters">
-					<div class="col-lg-9 offset-lg-3 col-12">
-
-						<div class="text-inner">
-							<div class="row">
-								<div class="col-lg-7 col-12">
-									<div class="hero-text">
-										<h1><span>Commander votre produit</span> Petrolier; </h1>
-										<hr>
-										<hr>
-										<p><br>
-											Hazetu met a votre diposition des fournisseurs d'essence</p>
-										<div class="button">
-											<a href="{{route('fournisseurs')}}" class="btn">Acheter maintenant !</a>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!--/ End Single Slider -->
-	</section>
-	<!--/ End Slider Area -->
-
-
-	<hr>
-	<section class="section free-version-banner">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-8 offset-md-2 col-xs-12">
-                    <div class="section-title mb-60">
-                        <span class="text-white wow fadeInDown" data-wow-delay=".2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;"></span>
-                        <h2 class="text-white wow fadeInUp" data-wow-delay=".4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;"><br> lite de fournisseurs</h2>
-                        <p class="text-white wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">vous pouvez voir la liste de tous les fournisseurs ou vous pouvez acheter vos produits petroliers</p>
-
-                        <div class="button">
-                            <a href="ListeFournisseur.html" target="_blank" rel="nofollow" class="btn wow fadeInUp" data-wow-delay=".8s">Voir la liste</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 	<!-- Start Shop Home List  -->
 	<section class="shop-home-list section">
@@ -63,27 +10,35 @@
 						<br>
 						<br>
 			<div class="row">
-				@foreach ($compagnies as $company)
-				<div class="col-lg-4 col-md-6 col-12">
+                @foreach ($compagnies as $item)
+                <div class="col-lg-4 col-md-6 col-12">
 					<div class="row">
 						<div class="col-12">
 							<div class="shop-section-title">
-								<h1>{{$company->name}}</h1>
+								<h1>{{$item->name}}</h1>
 							</div>
 						</div>
 					</div>
-					<!-- Start Single List  -->
+					<!-- Start shell Single List  -->
 					<div class="single-list">
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
-									<img src="{{asset('storage/uploads/'.$company->image)}}" alt="fournisseur de petrole">
+									<img src="{{asset('storage/uploads/'.$item->image)}}" alt="fournisseur de petrole">
 									<a href="fournisseur.html" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="fournisseur.html">En vente: Petrole, Essence</a></h5>
+									<h5 class="title"><a href="fournisseur.html">En vente:
+                                        Petrole, Essence
+                                    </a></h5>
+                                    <ul>
+
+                                         @foreach ($compagnies[0]['products'] as $product)
+                                        <li>{{$product->name}} @livewire('boutton-achat', ['product' => $product], key($product->id))</li>
+                                        @endforeach
+                                    </ul>
 
 								</div>
 							</div>
@@ -92,11 +47,12 @@
 					<!-- End Single List  -->
 
 				</div>
-				@endforeach
+                @endforeach
 			</div>
 		</div>
 	</section>
 	<!-- End Shop Home List  -->
+
 
 
 	<!-- Start Shop Services Area -->
@@ -169,5 +125,6 @@
             </div>
     </div>
     <!-- Modal end -->
+
 
 @endsection
