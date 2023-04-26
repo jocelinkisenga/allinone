@@ -1,5 +1,6 @@
 <?php
 
+use Darryldecode\Cart\Facades\CartFacade;
 use Illuminate\Support\Facades\Facade;
 
 return [
@@ -181,6 +182,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -211,6 +213,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'Cart' => CartFacade::class,
     ])->toArray(),
 
 ];
