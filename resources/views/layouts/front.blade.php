@@ -112,34 +112,10 @@
 								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							</div>
 							<div class="sinlge-bar shopping">
-								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">2</span></a>
+								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">@livewire('cardcounter')</span></a>
 								<!-- Shopping Item -->
 								<div class="shopping-item">
-									<div class="dropdown-cart-header">
-										<span>2 Produits</span>
-										<a href="#">Voir chariot</a>
-									</div>
-									<ul class="shopping-list">
-										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="images/gas-station (1).png" alt="#"></a>
-											<h4><a href="#">Essence</a></h4>
-											<p class="quantity">Fournisseur, Total - <span class="amount">$15099.00</span></p>
-										</li>
-										<li>
-											<a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-											<a class="cart-img" href="#"><img src="images/gas-station.png" alt="#"></a>
-											<h4><a href="#">Mazout</a></h4>
-											<p class="quantity">Fournisseur, Shell<span class="amount">$35000.00</span></p>
-										</li>
-									</ul>
-									<div class="bottom">
-										<div class="total">
-											<span>Total</span>
-											<span class="total-amount">$50099.00</span>
-										</div>
-										<a href="checkout.html" class="btn animate">Checkout</a>
-									</div>
+                                    @livewire('card')
 								</div>
 								<!--/ End Shopping Item -->
 							</div>

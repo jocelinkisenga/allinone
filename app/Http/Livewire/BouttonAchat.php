@@ -22,7 +22,14 @@ class BouttonAchat extends Component
 
 		$item = CartFacade::get($product['id']);
 		if ($item) {
-                dd("le produit existe déjà");
+            $this->dispatchBrowserEvent('swal', [
+                "position" => 'top-end',
+                "icon" => 'warning',
+                "title" => 'ce produit existe dans le panier',
+                "showConfirmButton" => false,
+                "timer" => 1500
+            ]);
+
 		} else {
 			CartFacade::add([
 					'id'=>$product['id'],
@@ -30,6 +37,7 @@ class BouttonAchat extends Component
 					'price'=> $product['price'],
 				 	'quantity' => 1,
 			])->associate("App\Models\Product");
+            $this->emit("cardcounter");
 		}
 
 
