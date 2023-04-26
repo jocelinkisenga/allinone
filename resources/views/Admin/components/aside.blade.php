@@ -44,16 +44,28 @@
             </a>
             <ul class="nav nav-treeview">
  
-              <li class="nav-item">
+              {{-- <li class="nav-item">
                 <a href="{{route('admin.manager')}}" class="nav-link ">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Managers</p>
                 </a>
-              </li>
+              </li> --}}
               <li class="nav-item">
                 <a href="{{route('admin.compagnies')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Societés</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>commandes</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>clients</p>
                 </a>
               </li>
             </ul>

@@ -33,7 +33,9 @@ class ManagerController extends Controller
      * @return \Illuminate\Http\RedirectResponse|mixed
      */
     public function activer(int $id){
+    
         $manager = User::find($id);
+        
         $manager->update(['status' => 1]);
         return redirect()->back();
     }

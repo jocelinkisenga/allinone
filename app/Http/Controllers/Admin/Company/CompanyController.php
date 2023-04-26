@@ -5,14 +5,25 @@ namespace App\Http\Controllers\Admin\Company;
 use App\Http\Controllers\Controller;
 use App\Models\Company;
 use Illuminate\Http\Request;
+use App\Contracts\Manager\CompanyRepositoryInterface;
 
 class CompanyController extends Controller
 {
+    public function __construct(
+        public CompanyRepositoryInterface $repo,
+    ){
+      
+    }
+
     public function index(){
        $companies = Company::all();
        return view('Admin.pages.Company.companies',compact('companies'));
     }
 
+    public function store(Request $request){
+        $this->repo->createData($request);
+        return redirect()->back();
+    }
     
     /**
      * Summary of activer

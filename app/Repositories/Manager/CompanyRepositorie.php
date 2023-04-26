@@ -5,6 +5,9 @@ use App\Contracts\Assets\UploadFileInterface;
 use App\Contracts\Manager\CompanyRepositoryInterface;
 use App\Models\Company;
 use Illuminate\Support\Facades\Auth;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+use App\Enums\RoleEnum;
 
 class CompanyRepositorie implements CompanyRepositoryInterface {
 
@@ -23,7 +26,7 @@ class CompanyRepositorie implements CompanyRepositoryInterface {
         $fileName= time().'.'.$attributes->file('image')->getClientOriginalName();
         $path=$attributes->file('image')->storeAs('uploads', $fileName, 'public');
 
-        User::create([
+       $user = User::create([
             'name' => $attributes->name,
             'email' => $attributes->email,
             'password'=> Hash::make($attributes->contact),
@@ -31,7 +34,7 @@ class CompanyRepositorie implements CompanyRepositoryInterface {
         ]);
 
         Company::create([
-            'user_id'=>Auth::user()->id,
+            'user_id'=>$user->id,
             'name'=>$attributes->name,
             'description'=>$attributes->description,
             'image'=>$fileName,

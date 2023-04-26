@@ -66,21 +66,7 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group">
-                                                                  <label for="exampleInputFile">selectionner une catégorie</label>
-                                                               
-                                                                    <select class="custom-select" name="categorie_id" id="">
-                                                                      <option selected>Selectionner une cat...</option>
-                                                                      @if (!empty($categories))
-                                                                      @foreach ($categories as $item )
-                                                                      <option value="{{$item->id}}">{{$item->name}}</option> 
-                                                                      @endforeach 
-                                                                      @endif
-
-                                                                      
-                                                                    </select>
-                                                                  
-                                                              </div>
+                                                          
                                                             </div>
                                                             <!-- /.card-body -->
 
@@ -141,7 +127,6 @@
                                             <th>ID</th>
                                             <th>nom</th>
                                             <th>prix</th>
-                                            <th>categorie</th>
                                             <th>Détail</th>
                                         </tr>
                                     </thead>
@@ -153,7 +138,6 @@
                                                 <td>{{$key+1}}</td>
                                                 <td>{{$item->name}}</td>
                                                 <td>{{$item->price}}</td>
-                                                <td>{{$item->categorie->name}}</td>
                                                 <td>detail</td>
                                             </tr> 
                                             @endforeach

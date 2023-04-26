@@ -27,7 +27,7 @@ class ProductRepositorie implements ProductRepositorieInterface {
         $path=$attributes->file('image')->storeAs('uploads', $fileName, 'public');
 
         Product::create([
-            'categorie_id'=>$attributes->categorie_id,
+       
             'company_id'=>$this->company->getContents()->id,
             'name'=>$attributes->name,
             'price'=>$attributes->price,

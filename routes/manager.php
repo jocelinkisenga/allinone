@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
     
     //POST METHODS
     
-    Route::post('/compagnie',[CompanyController::class,'store'])->name('manager.company.store');
+
     Route::post('/categorie',[CategoryController::class,'store'])->name('manager.categorie.store');
     Route::post('/product',[ProductController::class,'store'])->name('manager.product.store');
    

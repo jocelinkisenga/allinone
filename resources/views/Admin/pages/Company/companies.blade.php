@@ -38,7 +38,7 @@
                                                         <!-- form start -->
                                                      
                                                             <div class="card-body">
-                                                              <form action="{{route('manager.company.store')}}" method="POST" enctype="multipart/form-data">
+                                                              <form action="{{route('admin.company.store')}}" method="POST" enctype="multipart/form-data">
                                                              @csrf
                                                              <div class="row">
                                                                 <div class="col-6">
@@ -159,14 +159,21 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @if (!empty($data))
+                                        @if (!empty($companies))
+                                        @foreach ($companies as $item)
                                         <tr>
                                             <td>183</td>
-                                            <td>{{$data->name}}</td>
-                                            <td>{{$data->contact}}</td>
-                                            <td><span class="tag tag-success">{{$data->adress}}</span></td>
-                                            <td>detail</td>
+                                            <td>{{$item->name}}</td>
+                                            <td>{{$item->contact}}</td>
+                                            <td>{{$item->adress}}</td>
+                                            <td>
+                                                <a href="http://" title="voir plus"><i class="fas fa-eye text-primary ml-1"></i> </a>
+                                                <a href="{{route('manager.activer',['id'=>$item->user_id])}}" title="activer"> <i class="fas fa-mars-stroke-v text-success ml-1"></i></a>
+                                               <a href="{{route('manager.desactiver',['id'=>$item->user_id])}}" title="désactiver"> <i class="fas fa-window-close text-danger mr-1"></i></a>
+                                               </td>
                                         </tr>
+                                        @endforeach
+
                                         @endif
 
                                     </tbody>

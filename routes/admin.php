@@ -18,5 +18,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/company/activate/{id}',[CompanyController::class,'activer'])->name('company.activer');
     Route::get('/company/deactivate/{id}',[CompanyController::class,'desactiver'])->name('company.desactiver');
     Route::get('/company/{id}',[CompanyController::class,'show'])->name('company.show');
+
+    Route::post('/compagnie',[CompanyController::class,'store'])->name('admin.company.store');
 });
 
