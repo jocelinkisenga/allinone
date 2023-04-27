@@ -6,17 +6,17 @@
         <a href="../../index2.html" class="h1"><b>HAZELLI</b>PETRO</a>
       </div>
       <div class="card-body">
-       
-  
+
+
         <form action="{{route('register')}}" method="post">
             @csrf
-            <div class="input-group mb-3">
+            {{-- <div class="input-group mb-3">
                 <select name="role_name" id=""@class(['form-control', 'font-bold' => true])>
                     <option selected>Créer en tant que</option>
                     <option value="C">client</option>
                     <option value="M">Manager</option>
                 </select>
-              </div>
+              </div> --}}
           <div class="input-group mb-3">
             <input type="text" class="form-control" name="name" placeholder="nom complet">
             <div class="input-group-append">
@@ -65,7 +65,7 @@
             <!-- /.col -->
           </div>
         </form>
-{{--   
+{{--
         <div class="social-auth-links text-center">
           <a href="#" class="btn btn-block btn-primary">
             <i class="fab fa-facebook mr-2"></i>
