@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\Auth\RegisterController;
-use App\Http\Controllers\Frontend\Category\CategoryFrontController;
+use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Frontend\Company\CompanyFrontController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -24,7 +23,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/fournisseurs',[CompanyFrontController::class,'index'])->name('fournisseurs');
-//Route::get('/{slug}/{id}',[CompanyFrontController::class,'index'])->name('company');
+Route::middleware('auth')->group(function(){
+    Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
+});
+
+
 
 require __DIR__.'/admin.php';
 require __DIR__.'/manager.php';

@@ -17,7 +17,8 @@ class BouttonAchat extends Component
     public function add($product){
 
 
-
+        $company = \App\Models\Company::find($product['company_id']);
+       
 
 
 		$item = CartFacade::get($product['id']);
@@ -36,6 +37,7 @@ class BouttonAchat extends Component
 					'name'=>$product['name'],
 					'price'=> $product['price'],
 				 	'quantity' => 1,
+                    'company'=> $company->name,
 			])->associate("App\Models\Product");
             $this->emit("cardcounter");
 		}

@@ -7,6 +7,7 @@ use Livewire\Component;
 
 class Card extends Component
 {
+    protected $listeners = ["cardcounter"=> "render"];
     public $card_contents;
     public function render()
     {

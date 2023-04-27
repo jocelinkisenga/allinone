@@ -10,7 +10,7 @@
             <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
             <a class="cart-img" href="#"><img src="images/gas-station (1).png" alt="#"></a>
             <h4><a href="#">{{$item->name}}</a></h4>
-            <p class="quantity">Fournisseur, Total - <span class="amount">$15099.00</span></p>
+            <p class="quantity">, Total - <span class="amount">$15099.00</span></p>
         </li>
         @endforeach
     </ul>
@@ -19,6 +19,6 @@
             <span>Total</span>
             <span class="total-amount">$50099.00</span>
         </div>
-        <a href="checkout.html" class="btn animate">Checkout</a>
+        <a href="{{route('checkout')}}" class="btn animate">Checkout</a>
     </div>
 </div>
