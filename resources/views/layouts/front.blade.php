@@ -48,14 +48,7 @@
 <body class="js">
 
 	<!-- Preloader -->
-	<div class="preloader">
-		<div class="preloader-inner">
-			<div class="preloader-icon">
-				<span></span>
-				<span></span>
-			</div>
-		</div>
-	</div>
+
 	<!-- End Preloader -->
 
 
@@ -276,6 +269,6 @@
 	<!-- Easing JS -->
 	<script src="{{asset('front/js/easing.js')}}"></script>
 	<!-- Active JS -->
-	<script src="{{asset('front/js/active.js')}}"></script>
+	{{-- <script src="{{asset('front/js/active.js')}}"></script> --}}
 </body>
 </html>

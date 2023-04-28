@@ -19,6 +19,6 @@
             <span>Total</span>
             <span class="total-amount">$50099.00</span>
         </div>
-        <a href="{{route('checkout')}}" class="btn animate">Checkout</a>
+        <a href="{{route('card')}}" class="btn animate">voir le panier</a>
     </div>
 </div>

@@ -78,12 +78,18 @@
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
 									<img src="{{asset('storage/uploads/'.$company->image)}}" alt="fournisseur de petrole">
-									<a href="fournisseur.html" class="buy"><i class="fa fa-shopping-bag"></i></a>
+									<a href="{{route('fournisseurs')}}" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="fournisseur.html">En vente: Petrole, Essence</a></h5>
+									<h5 class="title"><a href="{{route('fournisseurs')}}">En vente: </a></h5>
+                                    <ul>
+
+                                        @foreach ($compagnies[0]['products'] as $product)
+                                       <li><strong>{{$product->name}}</strong><span class="ml-4">@livewire('boutton-achat', ['product' => $product], key($product->id))</span> </li>
+                                       @endforeach
+                                   </ul>
 
 								</div>
 							</div>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Frontend\Company\CompanyFrontController;
 use App\Http\Controllers\HomeController;
@@ -25,6 +26,7 @@ Route::get('/',[HomeController::class,'index'])->name('home');
 Route::get('/fournisseurs',[CompanyFrontController::class,'index'])->name('fournisseurs');
 Route::middleware('auth')->group(function(){
     Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
+    Route::get('/card',[CardController::class,'index'])->name('card');
 });
 
 
