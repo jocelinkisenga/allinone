@@ -9,4 +9,8 @@ class CardController extends Controller
     public function index(){
             return view('front.cart');
     }
+
+    public function store(Request $request){
+        dd($request);
+    }
 }

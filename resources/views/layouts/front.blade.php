@@ -98,9 +98,7 @@
 					<div class="col-lg-2 col-md-3 col-12">
 						<div class="right-bar">
 							<!-- Search Form -->
-							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-							</div>
+
 							<div class="sinlge-bar">
 								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
 							</div>
@@ -111,6 +109,12 @@
                                     @livewire('card')
 								</div>
 								<!--/ End Shopping Item -->
+							</div>
+                            <div class="sinlge-bar">
+								<form action="{{route('logout')}}" method="POST">
+                                    @csrf
+                                    <input class="ml-4 btn bg-danger btn-danger text-white" type="submit" value="se deconnecter">
+                                </form>
 							</div>
 						</div>
 					</div>
@@ -269,6 +273,6 @@
 	<!-- Easing JS -->
 	<script src="{{asset('front/js/easing.js')}}"></script>
 	<!-- Active JS -->
-	{{-- <script src="{{asset('front/js/active.js')}}"></script> --}}
+	<script src="{{asset('front/js/active.js')}}"></script>
 </body>
 </html>

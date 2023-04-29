@@ -24,27 +24,28 @@
                                 </td>
                                 <td class="product-des" data-title="Description">
 
-                                    <p class="product-des"> Shell</p>
+                                    <p class="product-des">{{$item['attributes']['company']}}</p>
                                 </td>
-                                <td class="price" data-title="Price"><span>$100.00 </span></td>
+                                <td class="price" data-title="Price"><span>{{$item['price']}} </span></td>
                                 <td class="qty" data-title="Qty">
                                     <form wire:prevent action="">
                                     <!-- Input Order -->
                                     <div class="input-group">
-                                        <div class="button minus">
+                                        {{-- <div class="button minus">
                                             <button type="button" wire:click="annuler()" class="btn btn-primary btn-number"
                                                 >
                                                 <i class="ti-minus"></i>
                                             </button>
                                         </div>
                                         <input type="text" wire:model="quantity" class="input-number" data-min="1"
-                                            data-max="100000" value="{{$quantity}}">
+                                            data-max="100000" value="">
                                         <div class="button plus">
                                             <button type="button" wire:click="ajout()" class="btn btn-primary btn-number">
                                                 <i class="ti-plus"></i>
                                             </button>
 
-                                        </div>
+                                        </div> --}}
+                                        <a class="btn btn-sm text-white" data-toggle="modal" data-target="#modalEx"><i class="ti-plus"></i>qty</a>
                                     </div>
                                 </form>
                                     <!--/ End Input Order -->
@@ -76,7 +77,7 @@
                             <div class="col-lg-4 col-md-7 col-12">
                                 <div class="right">
                                     <ul>
-                                        <li>Sous-total du panier<span>$330.00</span></li>
+                                        <li>Sous-total du panier<span></span></li>
                                         <li>Livraison par produit<span> 100</span></li>
                                         <li>TVA<span>$203.10</span></li>
                                         <li class="last">Vous payez<span>$310.00</span></li>
@@ -94,4 +95,29 @@
             </div>
         </div>
     </div>
+
+
+    <div wire:ignore.self class="modal fade" id="modalEx" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close" aria-hidden="true"></span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6 offset-lg-3 col-12">
+                            <h4 style="margin-top:100px;font-size:14px; font-weight:500; color:#F7941D; display:block; margin-bottom:5px;"></h4>
+                            <h3 style="font-size:30px;color:#333;">modifier la quantité<h3>
+                            <p style="display:block; margin-top:20px; color:#888; font-size:14px; font-weight:400;">
+                                <input type="text" name="" id="" class="form-control">
+                            </p>
+                            <div class="button" style="margin-top:30px;">
+                                <a href="" target="_blank" class="btn" style="color:#fff;">Ajouter!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
 </div>

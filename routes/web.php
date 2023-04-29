@@ -27,6 +27,7 @@ Route::get('/fournisseurs',[CompanyFrontController::class,'index'])->name('fourn
 Route::middleware('auth')->group(function(){
     Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
     Route::get('/card',[CardController::class,'index'])->name('card');
+    Route::post('/card',[CardController::class,'store'])->name('card_form_submit');
 });
 
 
