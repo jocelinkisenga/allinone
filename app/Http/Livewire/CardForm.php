@@ -30,5 +30,9 @@ class CardForm extends Component
         $this->quantity = $this->quantity_modify;
     }
 
+    public function add($id){
+       dd($this->quantity);
+    }
+
 
 }
