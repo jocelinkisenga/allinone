@@ -45,7 +45,7 @@
                                             </button>
 
                                         </div> --}}
-                                        <a class="btn btn-sm text-white" data-toggle="modal" data-target="#modalEx{{$item['id']}}"><i class="ti-plus"></i>qty</a>
+                                        <a class="btn btn-sm text-white" data-toggle="modal" data-target="#modalEx{{$item['id']}}"><i class="ti-plus"></i>qty</a><span class="ml-4">{{$item['quantity']}} l</span>
 
     <div wire:ignore.self class="modal fade" id="modalEx{{$item['id']}}" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
@@ -57,7 +57,7 @@
                     <div class="row no-gutters">
                         <div class="col-lg-6 offset-lg-3 col-12">
                             <h4 style="margin-top:100px;font-size:14px; font-weight:500; color:#F7941D; display:block; margin-bottom:5px;"></h4>
-                            <h3 style="font-size:30px;color:#333;">modifier la quantité {{$item['id']}}<h3>
+                            <h3 style="font-size:30px;color:#333;">modifier la quantité <h3>
                                 <form>
                             <p style="display:block; margin-top:20px; color:#888; font-size:14px; font-weight:400;">
                                 <input type="text" width="50%" wire:model.lazy="quantity" id="" > <span><button type="submit" class="btn btn-primary" wire:click.prevent="add({{$item['id']}})"> ajouter</button></span>
@@ -74,7 +74,7 @@
                                 </form>
                                     <!--/ End Input Order -->
                                 </td>
-                                <td class="total-amount" data-title="Total"><span>$220.88</span></td>
+                                <td class="total-amount" data-title="Total"><span>${{$item['quantity'] * $item['price']}}</span></td>
                                 <td class="action" data-title="Remove"><a href="#"><i
                                             class="ti-trash remove-icon"></i></a></td>
                             </tr>
@@ -101,10 +101,10 @@
                             <div class="col-lg-4 col-md-7 col-12">
                                 <div class="right">
                                     <ul>
-                                        <li>Sous-total du panier<span></span></li>
+                                        <li>Sous-total du panier<span>{{$total_price}}</span></li>
                                         <li>Livraison par produit<span> 100</span></li>
-                                        <li>TVA<span>$203.10</span></li>
-                                        <li class="last">Vous payez<span>$310.00</span></li>
+                                        <li>TVA<span>{{($total_price / 100) * 16}}</span></li>
+                                        <li class="last">Vous payez<span>{{$total_price + ($total_price / 100) * 16}}</span></li>
                                     </ul>
                                     <div class="button5">
                                         <a href="{{route('checkout')}}" class="btn">Passer à la caisse</a>

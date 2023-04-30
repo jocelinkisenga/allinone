@@ -8,7 +8,7 @@ use Livewire\Component;
 class CardForm extends Component
 {
 
-    public  $quantity;
+    public  $quantity ;
     public $quantity_modify;
 
     public $contents = [];
@@ -19,6 +19,8 @@ class CardForm extends Component
     {
         $this->contents = CartFacade::getContent();
         $this->subtotal = CartFacade::getSubTotal();
+        $this->total_price = CartFacade::getTotal();
+      
         return view('livewire.card-form');
     }
 
@@ -31,7 +33,13 @@ class CardForm extends Component
     }
 
     public function add($id){
-       dd($this->quantity);
+        $product = CartFacade::update($id,['quantity' => $this->quantity]);
+        $this->vider();
+
+    }
+
+    private function vider(){
+        $this->quantity;
     }
 
 

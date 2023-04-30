@@ -86,7 +86,7 @@
 									<h5 class="title"><a href="{{route('fournisseurs')}}">En vente: </a></h5>
                                     <ul>
 
-                                        @foreach ($compagnies[0]['products'] as $product)
+                                        @foreach (App\Models\Product::where('company_id',$company->id)->get() as $product)
                                        <li><strong>{{$product->name}}</strong><span class="ml-4">@livewire('boutton-achat', ['product' => $product], key($product->id))</span> </li>
                                        @endforeach
                                    </ul>

@@ -28,6 +28,7 @@ Route::middleware('auth')->group(function(){
     Route::get('checkout',[CheckoutController::class,'index'])->name('checkout');
     Route::get('/card',[CardController::class,'index'])->name('card');
     Route::post('/card',[CardController::class,'store'])->name('card_form_submit');
+    Route::post('checkoutStore',[CheckoutController::class,'store'])->name('checkout.store');
 });
 
 
