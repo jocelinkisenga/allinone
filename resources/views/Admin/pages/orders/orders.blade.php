@@ -52,8 +52,6 @@
                                         <tr>
                                             <th>N°</th>
                                             <th>proprétaire</th>
-                                            <th>montant</th>
-                                            <th>quantité</th>
                                             <th>contact</th>
                                             <th>Action</th>
                                         </tr>
@@ -65,14 +63,12 @@
                                             <td>{{$key+1}}</td>
                                             <td>{{$item->name}} {{$item->surname}}</td>
 
-                                           <td></td>
-
-                                            <td></td>
                                             <td>
                                                 {{$item->number_phone}}
                                             </td>
                                             <td>
                                                 <a href="http://" title="voir plus"><i class="fas fa-eye text-primary ml-1"></i> </a>
+                                                <a href="" title="confirmer la commande"><i class="fas fa-plus text-success ml-2"></i></a>
                                             </td>
                                         </tr>
 
