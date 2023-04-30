@@ -30,7 +30,7 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h3 class="card-title">Listes des sociétés</h3>
+                                <h3 class="card-title">Listes des commandes</h3>
 
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -50,30 +50,34 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>ID</th>
-                                            <th>nom</th>
-                                            <th>statut</th>
-                                            <th>Détail</th>
+                                            <th>N°</th>
+                                            <th>proprétaire</th>
+                                            <th>montant</th>
+                                            <th>quantité</th>
+                                            <th>contact</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($managers as $key =>$manager )
+
+                                        @foreach ($orders as $key => $item)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$manager->name}}</td>
-                                           @if ($manager->status == false)
-                                           <td>non activé</td>
-                                           @else
-                                           <td> activé</td>
-                                           @endif
+                                            <td>{{$item->name}} {{$item->surname}}</td>
+
+                                           <td></td>
+
+                                            <td></td>
+                                            <td>
+                                                {{$item->number_phone}}
+                                            </td>
                                             <td>
                                                 <a href="http://" title="voir plus"><i class="fas fa-eye text-primary ml-1"></i> </a>
-                                                <a href="{{route('manager.activer',['id'=>$manager->id])}}" title="activer"> <i class="fas fa-mars-stroke-v text-success ml-1"></i></a>
-                                               <a href="{{route('manager.desactiver',['id'=>$manager->id])}}" title="désactiver"> <i class="fas fa-window-close text-danger mr-1"></i></a>
-                                               </td>
+                                            </td>
                                         </tr>
-                                        @endforeach
 
+
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
