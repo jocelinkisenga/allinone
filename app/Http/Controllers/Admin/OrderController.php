@@ -20,4 +20,10 @@ class OrderController extends Controller
         $order = Order::findOrFail($id);
         return view("Admin.pages.orders.orderDetails",compact("orders","order"));
     }
+
+    public function affecter(int $id){
+        $order =  Order::find($id);
+        $order->update(['affecter' => 1]);
+        return redirect()->back();
+    }
 }

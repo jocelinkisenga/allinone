@@ -24,5 +24,6 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/orders',[OrderController::class,'index'])->name('admin.orders');
     Route::get('/order/{id}',[OrderController::class,'show'])->name('admin.order.details');
+    Route::get('/affecter/{id}',[OrderController::class,'affecter'])->name('admin.order.affecter');
 });
 

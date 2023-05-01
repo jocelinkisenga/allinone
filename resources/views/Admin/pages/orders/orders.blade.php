@@ -68,7 +68,7 @@
                                             </td>
                                             <td>
                                                 <a href="{{route('admin.order.details',['id' => $item->id])}}" title="voir plus"><i class="fas fa-eye text-primary ml-1"></i> </a>
-                                                <a href="" title="confirmer la commande"><i class="fas fa-plus text-success ml-2"></i></a>
+                                                <a href="{{route('admin.order.affecter',['id' => $item->id])}}" title="confirmer la commande"><i class="fas fa-plus text-success ml-2"></i></a>
                                             </td>
                                         </tr>
 
