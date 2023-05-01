@@ -18,4 +18,8 @@ class Product extends Model
     public function company(){
         return $this->belongsTo(Company::class,'company_id');
     }
+
+    public function orderDetails(){
+        return $this->hasOne(OrderDetails::class);
+    }
 }

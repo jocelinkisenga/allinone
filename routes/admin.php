@@ -23,5 +23,6 @@ Route::middleware('auth')->group(function(){
     Route::post('/compagnie',[CompanyController::class,'store'])->name('admin.company.store');
 
     Route::get('/orders',[OrderController::class,'index'])->name('admin.orders');
+    Route::get('/order/{id}',[OrderController::class,'show'])->name('admin.order.details');
 });
 
