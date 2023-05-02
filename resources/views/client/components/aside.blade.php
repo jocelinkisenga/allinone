@@ -38,41 +38,19 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Dashboard
+              Retour à l'acceuil
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            @auth
-                @if (Auth::user()->role_id === App\Enums\RoleEnum::ADMIN)
-                <ul class="nav nav-treeview">
+            <ul class="nav nav-treeview">
 
-                    {{-- <li class="nav-item">
-                      <a href="{{route('admin.manager')}}" class="nav-link ">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Managers</p>
-                      </a>
-                    </li> --}}
-                    <li class="nav-item">
-                      <a href="{{route('admin.compagnies')}}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>Societés</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="{{route('admin.orders')}}" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>commandes</p>
-                      </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="" class="nav-link">
-                        <i class="far fa-circle nav-icon"></i>
-                        <p>clients</p>
-                      </a>
-                    </li>
-                  </ul>
-                @endif
-            @endauth
+              <li class="nav-item">
+                <a href="" class="nav-link ">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>modifier profile</p>
+                </a>
+              </li>
+            </ul>
             <li>
               <form action="{{route('logout')}}" method="post">
               @csrf

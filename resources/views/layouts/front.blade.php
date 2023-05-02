@@ -61,7 +61,7 @@
 					<div class="col-lg-2 col-md-2 col-12">
 						<!-- Logo -->
 						<div class="logo">
-							<a href="index.html"><p class="font-weight-light">Hazetu Petroleum</p></a>
+							<a href="/"><p class="font-weight-light">Hazetu Petroleum</p></a>
 						</div>
 						<!--/ End Logo -->
 						<!-- Search Form -->
@@ -100,7 +100,13 @@
 							<!-- Search Form -->
 
 							<div class="sinlge-bar">
-								<a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                                @auth
+								<a href="{{route('client.profile')}}" class="single-icon" title="profile"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                                @endauth
+                                @guest
+                                <a href="{{route('login')}}" class="single-icon" title="login"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                                @endguest
+
 							</div>
 							<div class="sinlge-bar shopping">
 								<a href="#" class="single-icon"><i class="ti-bag"></i> <span class="total-count">@livewire('cardcounter')</span></a>
@@ -109,12 +115,6 @@
                                     @livewire('card')
 								</div>
 								<!--/ End Shopping Item -->
-							</div>
-                            <div class="sinlge-bar">
-								<form action="{{route('logout')}}" method="POST">
-                                    @csrf
-                                    <input class="ml-4 btn bg-danger btn-danger text-white" type="submit" value="se deconnecter">
-                                </form>
 							</div>
 						</div>
 					</div>
@@ -138,14 +138,9 @@
 										<div class="nav-inner">
 											<ul class="nav main-menu menu navbar-nav align-items-center">
 													<li class="active"><a href="#">Home</a></li>
-													<li><a href="ListeFournisseur.html">Liste de Fournisseur</a></li>
+													<li><a href="{{route('fournisseurs')}}">Liste de Fournisseur</a></li>
 
-													<li><a href="#">Boutique<i class="ti-angle-down"></i><span class="new">New</span></a>
-														<ul class="dropdown">
-															<li><a href="cart.html">Chariot</a></li>
-															<li><a href="checkout.html">Paiement</a></li>
-														</ul>
-													</li>
+
 
 
 
@@ -218,6 +213,13 @@
 								<li><a href="#"><i class="ti-flickr"></i></a></li>
 								<li><a href="#"><i class="ti-instagram"></i></a></li>
 							</ul>
+
+                            <div class="sinlge-bar">
+								<form action="{{route('logout')}}" method="POST">
+                                    @csrf
+                                    <input class="ml-4 btn bg-danger btn-danger text-white" type="submit" value="se deconnecter">
+                                </form>
+							</div>
 						</div>
 						<!-- End Single Widget -->
 					</div>

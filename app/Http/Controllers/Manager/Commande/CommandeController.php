@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Manager\Commande;
 
 use App\Http\Controllers\Controller;
+use App\Models\Commande;
 use App\Models\Company;
 use App\Models\Order;
 use Illuminate\Http\Request;
@@ -26,7 +27,11 @@ public function show(int $id){
 
 }
 
-
+public function confirmer(int $id){
+    $commande = Order::findOrFail($id);
+    $commande->update(['livrer' => 1]);
+    return redirect()->back();
+}
 
 
 }

@@ -17,8 +17,13 @@ class CompanyFrontController extends Controller
 
     public function index(){
         $compagnies = Company::with('products')->get();
-      
+
         return view('front.listefournisseur',compact('compagnies'));
 
+    }
+
+    public function show(int $id){
+        $company = Company::findOrFail($id);
+        return view("front.fournisseur",compact("company"));
     }
 }

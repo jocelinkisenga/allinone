@@ -78,7 +78,7 @@
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
 									<img src="{{asset('storage/uploads/'.$company->image)}}" alt="fournisseur de petrole">
-									<a href="{{route('fournisseurs')}}" class="buy"><i class="fa fa-shopping-bag"></i></a>
+									<a href="{{route("fournisseur.detail",['id' => $company->id])}}" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
@@ -87,7 +87,7 @@
                                     <ul>
 
                                         @foreach (App\Models\Product::where('company_id',$company->id)->get() as $product)
-                                       <li><strong>{{$product->name}}</strong><span class="ml-4">@livewire('boutton-achat', ['product' => $product], key($product->id))</span> </li>
+                                       <li><strong>{{$product->name}}</strong><span>@livewire('boutton-achat', ['product' => $product], key($product->id))</span> </li>
                                        @endforeach
                                    </ul>
 
