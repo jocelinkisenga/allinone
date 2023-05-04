@@ -7,17 +7,17 @@
     <ul class="shopping-list">
         @foreach ($card_contents as $item)
         <li>
-            <a href="#" class="remove" title="Remove this item"><i class="fa fa-remove"></i></a>
-            <a class="cart-img" href="#"><img src="images/gas-station (1).png" alt="#"></a>
+
+            <a class="cart-img" href="#"><img src="{{asset('storage/uploads/'.$item->image)}}" alt="#"></a>
             <h4><a href="#">{{$item->name}}</a></h4>
-            <p class="quantity">, Total - <span class="amount">$15099.00</span></p>
+            <p class="quantity"> <span class="amount"></span></p>
         </li>
         @endforeach
     </ul>
     <div class="bottom">
         <div class="total">
-            <span>Total</span>
-            <span class="total-amount">$50099.00</span>
+            <span></span>
+            <span class="total-amount"></span>
         </div>
         <a href="{{route('card')}}" class="btn animate">voir le panier</a>
     </div>

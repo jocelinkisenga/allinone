@@ -20,7 +20,7 @@ class CardForm extends Component
         $this->contents = CartFacade::getContent();
         $this->subtotal = CartFacade::getSubTotal();
         $this->total_price = CartFacade::getTotal();
-      
+
         return view('livewire.card-form');
     }
 
@@ -38,8 +38,14 @@ class CardForm extends Component
 
     }
 
+    public function delete(int $id){
+        CartFacade::remove($id);
+        $this->emit("cardcounter");
+    }
+
+
     private function vider(){
-        $this->quantity;
+        $this->quantity = "";
     }
 
 
