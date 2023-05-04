@@ -1,3 +1,6 @@
+@php
+    use App\Enums\RoleEnum;
+@endphp
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
@@ -13,7 +16,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Hazellipetrolum</a>
+          <a href="#" class="d-block">{{Auth::user()->name}}</a>
         </div>
       </div>
 
@@ -42,8 +45,8 @@
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
-            @auth
-                @if (Auth::user()->role_id === App\Enums\RoleEnum::ADMIN)
+
+                 @if (Auth::user()->role_id == RoleEnum::ADMIN)
                 <ul class="nav nav-treeview">
 
                     {{-- <li class="nav-item">
@@ -72,7 +75,7 @@
                     </li>
                   </ul>
                 @endif
-            @endauth
+
             <li>
               <form action="{{route('logout')}}" method="post">
               @csrf

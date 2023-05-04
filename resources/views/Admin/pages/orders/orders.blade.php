@@ -52,6 +52,7 @@
                                         <tr>
                                             <th>N°</th>
                                             <th>proprétaire</th>
+                                            <th>société</th>
                                             <th>contact</th>
                                             <th>Action</th>
                                         </tr>
@@ -61,8 +62,11 @@
                                         @foreach ($orders as $key => $item)
                                         <tr>
                                             <td>{{$key+1}}</td>
-                                            <td>{{$item->name}} {{$item->surname}}</td>
+                                            @if ($item->affecter == true)
+                                            <td class="bg-success">{{$item->name}} {{$item->surname}}</td>
+                                            @endif
 
+                                            <td>{{$item->company->name}}</td>
                                             <td>
                                                 {{$item->number_phone}}
                                             </td>

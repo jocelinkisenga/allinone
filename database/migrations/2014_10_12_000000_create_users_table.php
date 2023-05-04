@@ -32,7 +32,7 @@ return new class extends Migration
             'name'=>'admin',
             'email' => 'admin@gmail.com',
             'password'=> Hash::make('je suis admin'),
-            'role' => RoleEnum::ADMIN,
+            'role' => 1,
             'status' => true,
         ]);
     }
