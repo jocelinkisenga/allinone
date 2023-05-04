@@ -33,6 +33,10 @@ class LoginController extends Controller
          return redirect()->route('admin.dashboard');
       }
 
+      if($user->role_id === RoleEnum::CLIENT){
+        return redirect()->route('home');
+     }
+
 
 
    }

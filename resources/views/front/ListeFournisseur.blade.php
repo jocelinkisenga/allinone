@@ -25,12 +25,12 @@
 							<div class="col-lg-6 col-md-6 col-12">
 								<div class="list-image overlay">
 									<img src="{{asset('storage/uploads/'.$item->image)}}" alt="fournisseur de petrole">
-									<a href="fournisseur.html" class="buy"><i class="fa fa-shopping-bag"></i></a>
+									<a href="{{route('fournisseur.detail',['id'=>$item->id])}}" class="buy"><i class="fa fa-shopping-bag"></i></a>
 								</div>
 							</div>
 							<div class="col-lg-6 col-md-6 col-12 no-padding">
 								<div class="content">
-									<h5 class="title"><a href="fournisseur.html">En vente:
+									<h5 class="title"><a href="{{route('fournisseur.detail',['id'=>$item->id])}}">En vente:
 
                                     </a></h5>
                                     <ul>

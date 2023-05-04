@@ -47,7 +47,7 @@
                         <p class="text-white wow fadeInUp" data-wow-delay=".6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInUp;">vous pouvez voir la liste de tous les fournisseurs ou vous pouvez acheter vos produits petroliers</p>
 
                         <div class="button">
-                            <a href="ListeFournisseur.html" target="_blank" rel="nofollow" class="btn wow fadeInUp" data-wow-delay=".8s">Voir la liste</a>
+                            <a href="{{route('fournisseurs')}}" rel="nofollow" class="btn wow fadeInUp" data-wow-delay=".8s">Voir la liste</a>
                         </div>
                     </div>
                 </div>

@@ -53,10 +53,10 @@
                 @foreach ($company->products as $item)
                 <div class="col-lg-4 col-md-6 col-12">
                     <div class="single-banner">
-                        <img src="{{asset('storage/uploads/'.$item->photo)}}" alt="#">
+                        <img src="{{asset('storage/uploads/'.$item->image)}}" alt="#">
                         <div class="content">
                             <h3>{{$item->name}}  </h3>
-                            <a href="cart.html">{{$item->name}} </a>
+                            <button wire:click.prevent="add({{$item->id}})" class="bg-success text-white p-2 ml-4"><span class="fa fa-shopping-basket"></span></button>
                         </div>
                     </div>
                 </div>
