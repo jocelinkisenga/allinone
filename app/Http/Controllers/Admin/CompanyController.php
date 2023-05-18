@@ -11,7 +11,7 @@ class CompanyController extends Controller
     public function __construct(
         public CompanyRepositoryInterface $repo,
     ){
-      
+
     }
     public function index(){
         $companies = $this->repo->getContents();
@@ -19,6 +19,7 @@ class CompanyController extends Controller
     }
 
     public function store(Request $request){
+       
         $this->repo->createData($request);
         return redirect()->back();
     }

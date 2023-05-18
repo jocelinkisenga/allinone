@@ -11,8 +11,8 @@ interface ProductRepositorieInterface {
     public function getContentById(int $id);
 
     public function createData($attributes);
-    
-    public function updateData(int $id, $attributes);
+
+    public function updateData($attributes);
 
     public function deleteData(int $id);
 }

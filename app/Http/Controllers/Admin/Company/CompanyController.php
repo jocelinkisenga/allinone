@@ -12,7 +12,7 @@ class CompanyController extends Controller
     public function __construct(
         public CompanyRepositoryInterface $repo,
     ){
-      
+
     }
 
     public function index(){
@@ -21,10 +21,11 @@ class CompanyController extends Controller
     }
 
     public function store(Request $request){
+     
         $this->repo->createData($request);
         return redirect()->back();
     }
-    
+
     /**
      * Summary of activer
      * @param int $id

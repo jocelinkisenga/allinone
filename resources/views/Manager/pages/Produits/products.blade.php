@@ -38,7 +38,7 @@
 
                                                         <!-- /.card-header -->
                                                         <!-- form start -->
-                                                      
+
                                                             <div class="card-body">
                                                               <form action="{{route('manager.product.store')}}" method="POST" enctype="multipart/form-data">
                                                                 @csrf
@@ -66,12 +66,12 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-                                                          
+
                                                             </div>
                                                             <!-- /.card-body -->
 
 
-                                                      
+
                                                     </div>
                                                     <!-- /.card -->
 
@@ -138,10 +138,13 @@
                                                 <td>{{$key+1}}</td>
                                                 <td>{{$item->name}}</td>
                                                 <td>{{$item->price}}</td>
-                                                <td>detail</td>
-                                            </tr> 
+                                                <td>
+                                                    <a href="{{route('manager.product.edit',['id'=>$item->id])}}" title="editer le produit"><i class="fa fa-edit text-success"></i></a>
+                                                    <a href="{{route('manager.product.delete',['id'=>$item->id])}}" title="suprimer le produit"><i class="fa fa-window-close text-danger"></i></a>
+                                                </td>
+                                            </tr>
                                             @endforeach
-    
+
                                         </tbody>
                                     @endempty
                                 </table>

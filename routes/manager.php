@@ -16,14 +16,15 @@ use Illuminate\Support\Facades\Route;
     Route::get('/comandes',[CommandeController::class,'index'])->name('manager.commandes');
 
     Route::get('/company/{id}',[CompanyController::class,'show'])->name('manager.company.details');
-    Route::get('/product/{id}',[ProductController::class,'show'])->name('manager.product.details');
+    Route::get('/product/{id}',[ProductController::class,'edit'])->name('manager.product.edit');
     Route::get('/commande/{id}',[CommandeController::class,'show'])->name('manager.commade.details');
-
+    Route::get('/delete/{id}',[ProductController::class,'delete'])->name('manager.product.delete');
     //POST METHODS
 
 
     Route::post('/categorie',[CategoryController::class,'store'])->name('manager.categorie.store');
     Route::post('/product',[ProductController::class,'store'])->name('manager.product.store');
+    Route::post('/products',[ProductController::class,'update'])->name('manager.product.update');
     Route::get('/livrer/{id}',[CommandeController::class,'confirmer'])->name('manager.commande.confirmer');
 
 

@@ -4,11 +4,11 @@
     <!-- /.login-logo -->
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="../../index2.html" class="h1"><b>Hazelli</b>Petro</a>
+        <a href="../../index2.html" class="h1"><b>Hazetu</b> petrolium</a>
       </div>
       <div class="card-body">
-        
-  
+
+
         <form action="{{route('login')}}" method="post">
           @csrf
           <div class="input-group mb-3">
@@ -51,7 +51,7 @@
             <!-- /.col -->
           </div>
         </form>
-{{--   
+{{--
         <div class="social-auth-links text-center mt-2 mb-3">
           <a href="#" class="btn btn-block btn-primary">
             <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
@@ -61,7 +61,7 @@
           </a>
         </div>
         <!-- /.social-auth-links -->
-  
+
         <p class="mb-1">
           <a href="forgot-password.html">I forgot my password</a>
         </p> --}}

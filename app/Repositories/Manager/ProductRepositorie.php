@@ -12,14 +12,14 @@ class ProductRepositorie implements ProductRepositorieInterface {
         public CompanyRepositoryInterface $company,
     )
     {
-        
+
     }
 
     public function getContents(){
         if($this->company->getContents() != null){
             return Product::whereCompany_id($this->company->getContents()->id)->get();
         }
-       
+
     }
 
     public function createData($attributes){
@@ -27,22 +27,26 @@ class ProductRepositorie implements ProductRepositorieInterface {
         $path=$attributes->file('image')->storeAs('uploads', $fileName, 'public');
 
         Product::create([
-       
+
             'company_id'=>$this->company->getContents()->id,
             'name'=>$attributes->name,
             'price'=>$attributes->price,
             'image'=>$fileName
         ]);
-   
+
     }
 
     public function getContentById(int $id){
         return Product::findOrFail($id);
     }
 
-    public function updateData(int $id, $attributes){
-        $product = Product::find($id);
-        $product->update($attributes);
+    public function updateData($attributes){
+        $product = Product::find($attributes->product_id);
+
+        $product->update([
+            'name' => $attributes->name,
+            'price' => $attributes->price
+        ]);
     }
 
     public function deleteData(int $id){
@@ -50,5 +54,5 @@ class ProductRepositorie implements ProductRepositorieInterface {
         $product->delete();
     }
 
-    
+
 }

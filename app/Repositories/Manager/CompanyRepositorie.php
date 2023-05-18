@@ -15,7 +15,7 @@ class CompanyRepositorie implements CompanyRepositoryInterface {
         public UploadFileInterface $upload,
     )
     {
-        
+
     }
 
     public function getContents(){
@@ -23,6 +23,7 @@ class CompanyRepositorie implements CompanyRepositoryInterface {
     }
 
     public function createData($attributes){
+      
         $fileName= time().'.'.$attributes->file('image')->getClientOriginalName();
         $path=$attributes->file('image')->storeAs('uploads', $fileName, 'public');
 
@@ -42,7 +43,7 @@ class CompanyRepositorie implements CompanyRepositoryInterface {
             'contact'=>$attributes->contact
         ]);
 
- 
+
     }
 
     public function getContentById(int $id){
@@ -58,5 +59,5 @@ class CompanyRepositorie implements CompanyRepositoryInterface {
         $company = Company::find($id);
         $company->delete();
     }
-    
+
 }

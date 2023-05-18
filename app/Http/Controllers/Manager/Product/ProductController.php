@@ -6,6 +6,7 @@ use App\Contracts\Manager\CategorieRepositoryInterface;
 use App\Contracts\Manager\ProductRepositorieInterface;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Manager\ProductRequest;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -15,7 +16,7 @@ class ProductController extends Controller
         public ProductRepositorieInterface $product
     )
 {
-    
+
 }
 
 public function index(){
@@ -29,15 +30,19 @@ public function store(Request $request){
     return redirect()->back();
 }
 
-public function show(int $id){
+public function edit(int $id){
+    $product = Product::findOrFail($id);
+    return view("Manager.pages.Produits.modify",compact("product"));
 
 }
 
-public function update(ProductRequest $request, int $id){
-
+public function update(Request $request){
+    $this->product->updateData($request);
+    return redirect()->route('manager.products');
 }
 
 public function delete(int $id){
-    
+    $this->product->deleteData($id);
+    return redirect()->back();
 }
 }
