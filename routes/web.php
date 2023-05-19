@@ -33,6 +33,8 @@ Route::middleware('auth')->group(function(){
     Route::post('/card',[CardController::class,'store'])->name('card_form_submit');
     Route::post('checkoutStore',[CheckoutController::class,'store'])->name('checkout.store');
     Route::get('/profile',[ClientController::class,'index'])->name('client.profile');
+    Route::get('/modify',[ClientController::class,'modify'])->name('profile.modify');
+    Route::post('modifyP',[ClientController::class,'store'])->name('profile.modify.store');
 });
 
 
